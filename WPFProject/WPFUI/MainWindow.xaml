@@ -4,6 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WPFUI"
+        xmlns:viewModel="clr-namespace:WPFUI.MVVM.ViewModel"
         mc:Ignorable="d"
         Height="600" Width="920"
         WindowStyle="None"
@@ -11,6 +12,9 @@
         Background="Transparent"
         AllowsTransparency="True"
         >
+    <Window.DataContext>
+        <viewModel:MainViewModel></viewModel:MainViewModel>
+    </Window.DataContext>
     <Border Background="CornflowerBlue" CornerRadius="10">
         <Grid>
             <Grid.ColumnDefinitions>
@@ -33,26 +37,33 @@
                              Height="50"
                              Foreground="AliceBlue"
                              FontSize="14"
-                             Style="{StaticResource MenuButtonTheme}"/>
+                             Style="{StaticResource MenuButtonTheme}"
+                             IsChecked="True"
+                             Command="{Binding HomeViewCommand}"/>
                 <RadioButton Content="Discovery"
                     Height="50"
                     Foreground="AliceBlue"
                     FontSize="14"
-                    Style="{StaticResource MenuButtonTheme}"/>
+                    Style="{StaticResource MenuButtonTheme}"
+                    Command="{Binding DiscoveryViewCommand}"/>
                 <RadioButton Content="Feature"
                     Height="50"
                     Foreground="AliceBlue"
                     FontSize="14"
-                    Style="{StaticResource MenuButtonTheme}"/>
+                    Style="{StaticResource MenuButtonTheme}"
+                    Command="{Binding FeatureViewCommand}"/>
 
-                </StackPanel>
+            </StackPanel>
             <TextBox Width="250"
                      Height="40"
-                     HorizontalAlignment="Left"
+                     HorizontalAlignment="Right"
                      Margin="5"
                      Grid.Column="1"
                      Style="{StaticResource ModernTextBox}"></TextBox>
+            <ContentControl Grid.Row="1"
+                            Grid.Column="1"
+                            Margin="10"
+                            Content="{Binding CurrentView}"></ContentControl>
         </Grid>
-
     </Border>
 </Window>

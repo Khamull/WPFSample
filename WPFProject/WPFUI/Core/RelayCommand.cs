@@ -14,9 +14,9 @@ namespace WPFUI.Core
             remove { CommandManager.RequerySuggested -= value; }
         }
 
-        public RelayCommand(Action<object> execute, Func<object, bool> canExecute)
+        public RelayCommand(Action<object> execute, Func<object, bool> canExecute = null)
         {
-            _execute = execute;
+            _execute = execute ?? throw new ArgumentNullException(nameof(execute));
             _canExecute = canExecute;
         }
 
@@ -24,7 +24,8 @@ namespace WPFUI.Core
         {
             return _canExecute == null || _canExecute(parameter);
         }
-        public void Execute(object parameter)
+
+        public void Execute(object? parameter)
         {
             _execute(parameter);
         }
