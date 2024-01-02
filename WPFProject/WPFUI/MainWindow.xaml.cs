@@ -20,5 +20,27 @@ namespace WPFUI
         {
             InitializeComponent();
         }
+        protected override void OnMouseLeftButtonDown(MouseButtonEventArgs e)
+        {
+            base.OnMouseLeftButtonDown(e);
+
+            if (e.ClickCount == 2)
+            {
+                // Se for um duplo clique, verifica se a janela está maximizada e, em seguida, minimiza ou restaura conforme necessário
+                if (WindowState == WindowState.Maximized)
+                {
+                    WindowState = WindowState.Normal;
+                }
+                else
+                {
+                    WindowState = WindowState.Maximized;
+                }
+            }
+            else
+            {
+                // Se não for um duplo clique, inicia o arrastar da janela
+                DragMove();
+            }
+        }
     }
 }

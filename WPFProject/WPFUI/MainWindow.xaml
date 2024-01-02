@@ -5,8 +5,54 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WPFUI"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
+        Height="600" Width="920"
+        WindowStyle="None"
+        ResizeMode="CanResizeWithGrip"
+        Background="Transparent"
+        AllowsTransparency="True"
+        >
+    <Border Background="CornflowerBlue" CornerRadius="10">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="200">
+                </ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="75"></RowDefinition>
+                <RowDefinition></RowDefinition>
+            </Grid.RowDefinitions>
+            <TextBlock Text="WPFSample"
+                   VerticalAlignment="Center"
+                   HorizontalAlignment="Left"
+                   Foreground="AliceBlue"
+                   FontSize="26"
+                   Margin="20,0,0,0"/>
+            <StackPanel Grid.Row="1">
+                <RadioButton Content="Home"
+                             Height="50"
+                             Foreground="AliceBlue"
+                             FontSize="14"
+                             Style="{StaticResource MenuButtonTheme}"/>
+                <RadioButton Content="Discovery"
+                    Height="50"
+                    Foreground="AliceBlue"
+                    FontSize="14"
+                    Style="{StaticResource MenuButtonTheme}"/>
+                <RadioButton Content="Feature"
+                    Height="50"
+                    Foreground="AliceBlue"
+                    FontSize="14"
+                    Style="{StaticResource MenuButtonTheme}"/>
 
-    </Grid>
+                </StackPanel>
+            <TextBox Width="250"
+                     Height="40"
+                     HorizontalAlignment="Left"
+                     Margin="5"
+                     Grid.Column="1"
+                     Style="{StaticResource ModernTextBox}"></TextBox>
+        </Grid>
+
+    </Border>
 </Window>
