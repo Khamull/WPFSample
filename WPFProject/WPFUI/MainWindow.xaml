@@ -8,14 +8,14 @@
         mc:Ignorable="d"
         Height="600" Width="920"
         WindowStyle="None"
-        ResizeMode="CanResizeWithGrip"
+        ResizeMode="CanResize"
         Background="Transparent"
         AllowsTransparency="True"
         >
     <Window.DataContext>
         <viewModel:MainViewModel></viewModel:MainViewModel>
     </Window.DataContext>
-    <Border Background="CornflowerBlue" CornerRadius="10">
+    <Border Background="CornflowerBlue" CornerRadius="10" BorderThickness="1">
         <Grid>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="200">
